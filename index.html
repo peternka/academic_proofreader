@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peter Nencka</title>
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://www.peternencka.com/">
+<meta property="og:title"       content="Peter Nencka — Economist, Miami University">
+<meta property="og:description" content="Rose-Marie Garcia Anderson Assistant Professor of Economics at Miami University and NBER Faculty Research Fellow. Research in labor, public economics, economic history, education, and innovation.">
+<meta property="og:image"       content="https://www.peternencka.com/assets/profile.jpg">
+<meta name="twitter:card"       content="summary">
+<meta name="twitter:title"      content="Peter Nencka — Economist, Miami University">
+<meta name="twitter:description" content="Rose-Marie Garcia Anderson Assistant Professor of Economics at Miami University and NBER Faculty Research Fellow.">
+<meta name="twitter:image"      content="https://www.peternencka.com/assets/profile.jpg">
+
+<!-- SVG favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23046A38'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+<style>
+  /* ── Light mode tokens ── */
+  :root {
+    --text:        #1a1a1a;
+    --muted:       #6b6b6b;
+    --green:       #046A38;
+    --green-dark:  #024F29;
+    --green-soft:  #f2f7f4;
+    --warm:        #B4654A;
+    --warm-dark:   #8E4E38;
+    --warm-soft:   #faf3f0;
+    --bg:          #fdfdfc;
+    --rule:        #e8e8e4;
+    --pub-accent:  #d4e9dc;
+    --pub-hover:   #f7f9f7;
+  }
+
+  /* ── Dark mode tokens (system preference) ── */
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --text:       #d4d1c8;
+      --muted:      #918e85;
+      --green:      #4aab6e;
+      --green-dark: #5cc484;
+      --green-soft: #111a14;
+      --warm:       #D4845F;
+      --warm-dark:  #E09A7A;
+      --warm-soft:  #1e1614;
+      --bg:         #1c1b18;
+      --rule:       #2e2d28;
+      --pub-accent: #1a2820;
+      --pub-hover:  #23221e;
+    }
+  }
+
+  /* ── Dark mode (manual toggle) ── */
+  :root.dark {
+    --text:       #d4d1c8;
+    --muted:      #918e85;
+    --green:      #4aab6e;
+    --green-dark: #5cc484;
+    --green-soft: #111a14;
+    --warm:       #D4845F;
+    --warm-dark:  #E09A7A;
+    --warm-soft:  #1e1614;
+    --bg:         #1c1b18;
+    --rule:       #2e2d28;
+    --pub-accent: #1a2820;
+    --pub-hover:  #23221e;
+  }
+
+  /* ── Light mode (manual override) ── */
+  :root.light {
+    --text:       #1a1a1a;
+    --muted:      #6b6b6b;
+    --green:      #046A38;
+    --green-dark: #024F29;
+    --green-soft: #f2f7f4;
+    --warm:       #B4654A;
+    --warm-dark:  #8E4E38;
+    --warm-soft:  #faf3f0;
+    --bg:         #fdfdfc;
+    --rule:       #e8e8e4;
+    --pub-accent: #d4e9dc;
+    --pub-hover:  #f7f9f7;
+  }
+
+  /* ── Theme toggle button ── */
+  #theme-toggle {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 0;
+    line-height: 1;
+    transition: color 0.15s ease;
+    display: flex;
+    align-items: center;
+  }
+  #theme-toggle:hover { color: var(--green); }
+  #theme-toggle svg { width: 15px; height: 15px; }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  /* ── Skip link ── */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--green);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 6px 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: none;
+    z-index: 100;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
+
+  body {
+    font-family: "Atkinson Hyperlegible Next", -apple-system, system-ui, sans-serif;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top accent bar: two-tone green/warm ── */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green) 70%, var(--warm) 100%);
+    z-index: 10;
+  }
+
+  /* ── Nav ── */
+  nav {
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+  nav a {
+    margin-right: 1.5rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: none;
+    transition: color 0.15s ease;
+    position: relative;
+  }
+  nav a:hover,
+  nav a.active { color: var(--green); }
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -1.05rem;
+    height: 2px;
+    background: var(--green);
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--green);
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--warm);
+    background: var(--bg);
+  }
+
+  /* ── Type scale ── */
+  h1 {
+    font-size: 2.1rem;
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .title {
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  h2 {
+    font-size: 1.35rem;
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    position: relative;
+    padding-bottom: 0.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--warm);
+  }
+  h3 {
+    font-size: 0.82rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-weight: 600;
+  }
+
+  /* ── Links ── */
+  a {
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  a:hover { border-bottom-color: var(--green); }
+
+  p { margin: 0 0 1rem; }
+
+  /* ── Publication entries ── */
+  .pub {
+    padding: 0.85rem 0.85rem;
+    margin-left: -0.85rem;
+    margin-right: -0.85rem;
+    border-left: 3px solid transparent;
+    border-radius: 2px;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .pub + .pub {
+    border-top: 1px solid var(--rule);
+  }
+  h3 + .pub { padding-top: 0.85rem; }
+
+  .pub:hover {
+    background: var(--pub-hover);
+    border-left-color: var(--pub-accent);
+  }
+
+  /* publication title links: slightly heavier */
+  .pub > a:first-child {
+    font-weight: 500;
+  }
+
+  .pub .venue { color: var(--muted); font-style: italic; }
+  .pub .media {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+  .pub .media a {
+    color: var(--warm);
+    border-bottom-color: transparent;
+  }
+  .pub .media a:hover {
+    color: var(--warm-dark);
+    border-bottom-color: var(--warm);
+  }
+
+  /* ── Contact list ── */
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+  @media (max-width: 520px) {
+    .contact-list { grid-template-columns: 1fr; }
+  }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: var(--text);
+    padding: 0.4rem 0;
+  }
+  .contact-list .icon {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    margin-top: 4px;
+    color: var(--warm);
+  }
+
+  /* ── Misc ── */
+  ul { padding-left: 1.1rem; }
+  ul li { margin-bottom: 0.35rem; }
+  .note { font-size: 0.82rem; color: var(--muted); margin-top: 1rem; }
+
+  footer {
+    margin-top: 4rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+  }
+
+  /* ── Section dividers: subtle breathing room ── */
+  h2#teaching { margin-top: 3.8rem; }
+  h2#contact  { margin-top: 3.8rem; }
+</style>
+</head>
+<body>
+
+<!-- Skip link -->
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<nav aria-label="Main navigation">
+  <a href="#about"    data-section="about">Home</a>
+  <a href="cv.pdf">CV</a>
+  <a href="#research" data-section="research">Research</a>
+  <a href="#teaching" data-section="teaching">Teaching</a>
+  <a href="#contact"  data-section="contact">Contact</a>
+  <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <!-- sun icon (shown in dark mode) -->
+    <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <!-- moon icon (shown in light mode) -->
+    <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+    </svg>
+  </button>
+</nav>
+
+<main id="main-content">
+
+<header id="about">
+  <img src="assets/profile.jpg" alt="Peter Nencka" width="130" height="130" loading="eager">
+  <div>
+    <h1>Peter Nencka</h1>
+    <p class="title">Rose-Marie Garcia Anderson Assistant Professor of Economics<br>Miami University</p>
+  </div>
+</header>
+
+<p>
+  Welcome! I am the Rose-Marie Garcia Anderson Assistant Professor in the
+  <a href="https://miamioh.edu/fsb/academics/economics/index.html">Economics Department</a>
+  at <a href="https://www.miamioh.edu/">Miami University</a> and a Faculty Research Fellow at the
+  <a href="https://www.nber.org/programs-projects/programs-working-groups/development-american-economy">National Bureau of Economic Research</a>.
+</p>
+
+<p>
+  My research focuses on labor and public economics, with applications to economic history, education, and innovation.
+  Before graduate school, I studied economics and philosophy at <a href="https://www.beloit.edu/">Beloit College</a>.
+</p>
+
+<p>
+  You can find my CV <a href="cv.pdf">here</a>, and reach me by email at
+  <a href="mailto:nenckap@miamioh.edu">nenckap@miamioh.edu</a>.
+</p>
+
+<h2 id="research">Research</h2>
+
+<h3>Publications</h3>
+
+<div class="pub">
+  <a href="assets/carnegie.pdf">Knowledge access: The effects of Carnegie libraries on innovation</a>
+  (with <a href="https://sites.google.com/view/enricoberkes/home">Enrico Berkes</a>).
+  <span class="venue">Forthcoming at The Review of Economics and Statistics.</span>
+</div>
+
+<div class="pub">
+  <a href="assets/returns_library.pdf">The returns to public library investment</a>
+  (with <a href="https://www.montana.edu/gilpin/">Greg Gilpin</a> and <a href="https://ezrakarger.com/">Ezra Karger</a>).
+  <span class="venue">American Economic Journal: Economic Policy 16 (2024): 78–109.</span>
+  <div class="media">
+    Media: <a href="https://www.marketplace.org/2021/07/20/public-libraries-investment-well-worth-it/">Marketplace</a>,
+    <a href="https://www.marketwatch.com/story/how-do-you-quantify-the-value-of-a-public-library-heres-what-one-report-finds-11622226258">MarketWatch</a>,
+    <a href="https://fordhaminstitute.org/national/commentary/can-investments-public-libraries-boost-educational-outcomes">Fordham Institute</a>.
+  </div>
+</div>
+
+<div class="pub">
+  <a href="assets/school_closures.pdf">School closures during the 1918 flu pandemic</a>
+  (with <a href="https://www.philippager.com/">Philipp Ager</a>,
+  <a href="http://kaeriksson.ucdavis.edu/">Katherine Eriksson</a>,
+  <a href="https://ezrakarger.com/">Ezra Karger</a>, and
+  <a href="https://miamioh.edu/fsb/directory/?up=%2Fdirectory%2Fthomasma">Melissa A. Thomasson</a>;
+  also <a href="https://www.nber.org/papers/w28246">NBER WP w28246</a>).
+  <span class="venue">The Review of Economics and Statistics 106 (2024): 266–276.</span>
+</div>
+
+<div class="pub">
+  <a href="assets/census_place_project.pdf">The Census Place Project: A method for geolocating unstructured place names</a>
+  (with <a href="https://sites.google.com/view/enricoberkes/home">Enrico Berkes</a> and
+  <a href="https://ezrakarger.com/">Ezra Karger</a>).
+  <span class="venue">Explorations in Economic History, Vol. 87 (January 2023).</span>
+  <div class="media">
+    <a href="https://www.openicpsr.org/openicpsr/project/179401/version/V1/view">Crosswalks</a> ·
+    <a href="https://github.com/ezrakarger/census_place_project">Code</a>
+  </div>
+</div>
+
+<div class="pub">
+  <a href="https://www.sciencedirect.com/science/article/pii/S1041608019300214">Predicting education attainment: Does grit compensate for low levels of cognitive ability?</a>
+  (with <a href="https://economics.osu.edu/people/light.20">Audrey Light</a>).
+  <span class="venue">Learning and Individual Differences, 2019.</span>
+</div>
+
+<h3>Works in Progress</h3>
+
+<div class="pub">
+  <a href="assets/high_schools.pdf">High schools and the uneven rise in American opportunity</a>
+  (with <a href="https://ezrakarger.com/">Ezra Karger</a> and Alison Doxey Koetting).
+</div>
+
+<div class="pub">
+  <a href="assets/pandemic_hospitals.pdf">Do pandemics change healthcare? Evidence from the Great Influenza</a>
+  (with <a href="https://sites.google.com/view/resteves">Rui Esteves</a>,
+  <a href="https://sites.google.com/site/krismitchener/home">Kris James Mitchener</a>, and
+  <a href="https://miamioh.edu/fsb/directory/?up=%2Fdirectory%2Fthomasma">Melissa A. Thomasson</a>;
+  also <a href="https://www.nber.org/papers/w30643">NBER WP w30643</a>).
+</div>
+
+<div class="pub">
+  Out of the university, into the workforce: Early 20th century scientific training and industrial research
+  (with <a href="https://www.xuechaoqian.com/home">Xuechao Qian</a>).
+</div>
+
+<div class="pub">
+  The Women's Ku Klux Klan and education in the 1920s
+  (with <a href="https://daniellecgw.github.io/research">Danielle Graves Williamson</a>).
+</div>
+
+<div class="pub">
+  <a href="assets/soccer_record.pdf">Soccer's record on the road: The effect of late-night sporting events on fatal car crashes</a>
+  (with <a href="https://sites.google.com/colorado.edu/james-flynn">James Flynn</a> and Noah Meyers-Richter*).
+</div>
+
+<h3>Book Chapters</h3>
+
+<div class="pub">
+  "Credit Constraints Throughout Childhood and Education Attainment,"
+  in <em>Annual Proceedings of The Wealth and Well-Being of Nations; The Miller Upton Forum, Volume XII</em>,
+  Beloit College Press, 2021.
+</div>
+
+<p class="note">*Former Miami University student</p>
+
+<h2 id="teaching">Teaching</h2>
+
+<h3>Current Courses</h3>
+
+<div class="pub">
+  <strong>Examining Economic Data and Models</strong> (undergraduate econometrics) — Miami University, Fall 2020–present
+</div>
+<div class="pub">
+  <strong>Graduate Applied Microeconomics</strong> (advanced causal inference and machine learning) — Miami University, Spring 2023–present
+</div>
+
+<h3>Past Courses</h3>
+
+<div class="pub">
+  <strong>Introduction to Microeconomics</strong> — Miami University, Fall 2024
+</div>
+
+<h2 id="contact">Contact</h2>
+
+<ul class="contact-list">
+  <li>
+    <!-- building icon -->
+    <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="7" width="14" height="11" rx="1"/><path d="M1 7l9-5 9 5"/><path d="M8 18v-5h4v5"/>
+    </svg>
+    <span>Department of Economics, Miami University</span>
+  </li>
+  <li>
+    <!-- envelope icon -->
+    <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/>
+    </svg>
+    <a href="mailto:nenckap@miamioh.edu">nenckap@miamioh.edu</a>
+  </li>
+  <li>
+    <!-- document icon -->
+    <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M5 2h7l4 4v12a1 1 0 01-1 1H5a1 1 0 01-1-1V3a1 1 0 011-1z"/><path d="M12 2v4h4"/><path d="M7 10h6M7 13h4"/>
+    </svg>
+    <a href="cv.pdf">Curriculum vitae</a>
+  </li>
+  <li>
+    <!-- graduation cap / scholar icon -->
+    <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 3L2 7l8 4 8-4-8-4z"/><path d="M2 7v5"/><path d="M6 9.5V14c0 1.5 1.8 2.5 4 2.5s4-1 4-2.5V9.5"/>
+    </svg>
+    <a href="https://scholar.google.com/citations?user=xv7pJRAAAAAJ&hl=en">Google Scholar</a>
+  </li>
+  <li>
+    <!-- butterfly / Bluesky icon approximation -->
+    <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 6C10 6 6 2 2 4c0 4 3 6 8 6s8-2 8-6c-4-2-8 2-8 2z"/><path d="M10 12v5"/>
+    </svg>
+    <a href="https://bsky.app/profile/peternka.bsky.social">Bluesky</a>
+  </li>
+</ul>
+
+</main>
+
+<footer>© 2026 Peter Nencka</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn  = document.getElementById('theme-toggle');
+  var sun  = document.getElementById('icon-sun');
+  var moon = document.getElementById('icon-moon');
+
+  var stored = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var isDark = stored === 'dark' || (!stored && prefersDark);
+
+  function applyTheme(dark) {
+    root.classList.toggle('dark', dark);
+    root.classList.toggle('light', !dark);
+    sun.style.display  = dark ? '' : 'none';
+    moon.style.display = dark ? 'none' : '';
+  }
+
+  applyTheme(isDark);
+
+  btn.addEventListener('click', function () {
+    isDark = !isDark;
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    applyTheme(isDark);
+  });
+
+  /* Active nav via IntersectionObserver */
+  var navLinks = document.querySelectorAll('nav a[data-section]');
+  var sectionIds = ['about', 'research', 'teaching', 'contact'];
+  var sections = sectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+
+  function setActive(id) {
+    navLinks.forEach(function(a) {
+      if (a.getAttribute('data-section') === id) {
+        a.classList.add('active');
+      } else {
+        a.classList.remove('active');
+      }
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+
+    sections.forEach(function(s) { observer.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
